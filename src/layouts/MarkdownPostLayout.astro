@@ -1,12 +1,14 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
 const { frontmatter } = Astro.props;
 
 // 当你在一个 .md 文件中包含 layout frontmatter 属性时，你可以在布局文件中使用所有 frontmatter YAML 的值。
 ---
-<meta charset="utf-8" />
-<h1> {frontmatter.title}</h1>
-<p>{frontmatter.pubDate.toString().slice(0,10)}</p>
-<p><em>{frontmatter.description}</em></p>
-<p>作者：{frontmatter.author}</p>
-<img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
-<slot />
+
+<BaseLayout pageTitle={frontmatter.title}>
+  <p>{frontmatter.pubDate.toString().slice(0, 10)}</p>
+  <p><em>{frontmatter.description}</em></p>
+  <p>作者：{frontmatter.author}</p>
+  <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
+  <slot />
+</BaseLayout>
