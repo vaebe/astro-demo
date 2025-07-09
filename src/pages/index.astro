@@ -1,8 +1,8 @@
 ---
 import { getCollection } from "astro:content";
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Greeting from "../components/Greeting";
-import BlogPost from "../components/BlogPost.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Greeting from "@/components/Greeting";
+import BlogPost from "@/components/BlogPost.astro";
 
 const pageTitle = "首页";
 const allDocs = await getCollection("docs");
