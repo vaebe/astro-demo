@@ -10,9 +10,10 @@ const allDocs = await getCollection("docs");
 
 <BaseLayout pageTitle={pageTitle}>
 	<h2>我超棒的博客副标题</h2>
+
 	<Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
 
-	<ul>
+	<ul class="space-y-4 mt-10">
 		{
 			allDocs.map((post: any) => (
 				<BlogPost url={`/posts/${post.id}/`} title={post.data.title} />
