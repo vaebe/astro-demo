@@ -10,6 +10,11 @@ export async function getStaticPaths() {
   }));
 }
 
+/**
+ * Astro.props：是从 getStaticPaths 中传下来的 props，包含每篇文章的完整数据。
+ * render(post)：将 Markdown 文件渲染成一个可以挂载在页面上的组件，返回 { Content, headings, remarkPluginFrontmatter } 等。
+ * Content：这是一个 Astro 组件，可以像普通组件一样在 <template> 中使用。
+ */
 const { post } = Astro.props;
 const { Content } = await render(post);
 ---

@@ -1,10 +1,22 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Greeting from "../components/Greeting";
+import BlogPost from "../components/BlogPost.astro";
+
 const pageTitle = "首页";
+const allDocs = await getCollection("docs");
 ---
 
 <BaseLayout pageTitle={pageTitle}>
 	<h2>我超棒的博客副标题</h2>
 	<Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
+
+	<ul>
+		{
+			allDocs.map((post: any) => (
+				<BlogPost url={`/posts/${post.id}/`} title={post.data.title} />
+			))
+		}
+	</ul>
 </BaseLayout>
