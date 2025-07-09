@@ -1,20 +1,19 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import BlogPost from "../../components/BlogPost.astro";
 
 export async function getStaticPaths() {
-  const allPosts = Object.values(
-    import.meta.glob("../posts/*.md", { eager: true }),
-  );
+  const allPosts = await getCollection("blog");
 
-  // 获取所有标签并取重
+  // 获取所有标签并去重
   const uniqueTags = [
-    ...new Set(allPosts.map((post: any) => post.frontmatter.tags).flat()),
+    ...new Set(allPosts.map((post: any) => post.data.tags).flat()),
   ];
 
   return uniqueTags.map((tag) => {
     const filteredPosts = allPosts.filter((post: any) =>
-      post.frontmatter.tags.includes(tag),
+      post.data.tags.includes(tag),
     );
 
     // 这里返回的参数使用下边的  Astro.params Astro.props 接收;
@@ -34,7 +33,7 @@ const { posts } = Astro.props;
   <ul>
     {
       posts.map((post: any) => (
-        <BlogPost url={post.url} title={post.frontmatter.title} />
+        <BlogPost url={`/posts/${post.id}/`} title={post.data.title} />
       ))
     }
   </ul>
