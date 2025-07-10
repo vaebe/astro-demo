@@ -9,7 +9,14 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   site: "https://astro-d.netlify.app",
   integrations: [preact()],
-
+  markdown: {
+    shikiConfig: {
+      themes: {
+        light: 'github-light',
+        dark: 'github-dark',
+      },
+    },
+  },
   vite: {
     plugins: [tailwindcss()]
   }

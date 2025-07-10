@@ -22,3 +22,20 @@ tags: ["astro", "blogging", "learning in public"]
  ## 下一步计划
 
  我将完成 Astro 教程，然后继续编写更多内容。关注我以获取更多信息。
+
+ 
+
+ ```ts
+ import { defineConfig } from 'astro/config';
+
+export default defineConfig({
+  markdown: {
+    shikiConfig: {
+      themes: {
+        light: 'github-light',
+        dark: 'github-dark',
+      },
+    },
+  },
+});
+ ```
