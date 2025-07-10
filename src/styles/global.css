@@ -1,4 +1,9 @@
 @import "tailwindcss";
+@import '@fontsource/ma-shan-zheng';
+
+@theme {
+  --font-MaShanZheng: 'Ma Shan Zheng', 'sans-serif';
+}
 
 html {
   background-color: #f1f5f9;
