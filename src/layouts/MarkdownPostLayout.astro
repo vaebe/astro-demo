@@ -21,5 +21,7 @@ const { frontmatter } = Astro.props;
     }
   </div>
 
-  <slot />
+  <div class="prose prose-slate lg:prose-lg dark:prose-invert">
+    <slot />
+  </div>
 </BaseLayout>

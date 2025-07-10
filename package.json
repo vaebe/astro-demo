@@ -9,13 +9,17 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.4",
     "@astrojs/preact": "^4.1.0",
     "@astrojs/rss": "^4.0.12",
     "@fontsource/ma-shan-zheng": "^5.2.6",
-    "@tailwindcss/vite": "^4.1.11",
     "astro": "^5.11.0",
     "preact": "^10.26.9",
+    "remark-toc": "^9.0.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@tailwindcss/typography": "^0.5.16",
+    "@tailwindcss/vite": "^4.1.11",
     "tailwindcss": "^4.1.11",
     "typescript": "^5.8.3"
   }
