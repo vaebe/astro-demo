@@ -5,13 +5,15 @@
   --font-MaShanZheng: 'Ma Shan Zheng', 'sans-serif';
 }
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 html {
   background-color: #f1f5f9;
   font-family: sans-serif;
 }
 
 html.dark {
-  background-color: #0d0950;
+  background-color: rgba(0, 0, 0, 30);
   color: #fff;
 }
 

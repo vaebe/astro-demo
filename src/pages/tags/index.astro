@@ -10,33 +10,13 @@ const pageTitle = "标签索引";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <div class="tags">
+  <div class="flex items-center space-x-2">
     {
       tags.map((tag) => (
-        <p class="tag">
+        <div class="rounded py-0.5 px-2 text-l bg-sky-400">
           <a href={`/tags/${tag}`}>{tag}</a>
-        </p>
+        </div>
       ))
     }
   </div>
 </BaseLayout>
-
-<style>
-  a {
-    color: #00539f;
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .tag {
-    margin: 0.25em;
-    border: dotted 1px #a1a1a1;
-    border-radius: 0.5em;
-    padding: 0.5em 1em;
-    font-size: 1.15em;
-    background-color: #f8fcfd;
-  }
-</style>
