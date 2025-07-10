@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Greeting from "@/components/Greeting";
 import BlogPost from "@/components/BlogPost.astro";
+import AstroHeart from "@/components/AstroHeart.astro";
 
 const pageTitle = "首页";
 const allDocs = await getCollection("docs");
@@ -20,4 +21,11 @@ const allDocs = await getCollection("docs");
 			))
 		}
 	</ul>
+
+	<!-- 自定义元素组件 -->
+	<p class="mt-10">点击 💜</p>
+	<div class="space-x-2">
+		<AstroHeart />
+		<AstroHeart />
+	</div>
 </BaseLayout>

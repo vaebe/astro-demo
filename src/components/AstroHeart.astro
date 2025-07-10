@@ -1,0 +1,34 @@
+<!-- 将按钮包装在我们的自定义元素“astro-heart”中。 -->
+<astro-heart class="bg-pink-400 rounded px-2">
+  <button aria-label="Heart" class="cursor-pointer p-2">💜</button> × <span
+    >0</span
+  >
+</astro-heart>
+
+<script>
+  // 为我们的新 HTML 自定义元素定义行为。
+  class AstroHeart extends HTMLElement {
+    connectedCallback() {
+      let count = 0;
+
+      const heartButton = this.querySelector("button");
+      const countSpan = this.querySelector("span");
+
+      console.log(heartButton, countSpan);
+
+      // 每次单击按钮时，更新计数。
+      heartButton?.addEventListener("click", () => {
+        count++;
+
+        console.log("=-=-=-=-=-=");
+
+        if (countSpan) {
+          countSpan.textContent = count.toString();
+        }
+      });
+    }
+  }
+
+  // 告诉浏览器将我们的 AstroHeart 类用于 <astro-heart> 元素。
+  customElements.define("astro-heart", AstroHeart);
+</script>
